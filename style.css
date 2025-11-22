@@ -22,7 +22,7 @@ nav {
 nav .logo {
     font-weight: 600;
     font-size: 1.2rem;
-    color: #ffd86b; /* subtle accent */
+    color: #fffff; /* subtle accent */
 }
 
 nav ul {
@@ -121,3 +121,4 @@ footer {
     margin-top: 3rem;
     color: #e0e0e0;
 }
+
