@@ -64,7 +64,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-right: 50px;
+  padding-right: 25px;
 }
 
 .profile-img {
@@ -73,6 +73,7 @@ body {
   border-radius: 20px;
   object-fit: cover;
 }
+
 
 
 
