@@ -68,11 +68,12 @@ body {
 }
 
 .profile-img {
-  width: 220px;
+  width: 260px;
   height: auto;
   border-radius: 20px;
   object-fit: cover;
 }
+
 
 
 
