@@ -64,14 +64,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  padding-right: 50px;
 }
 
 .profile-img {
-  width: 75%;
-  maxwidth: 600px;
+  width: 320px;
+  height: auto;
   border-radius: 20px;
   object-fit: cover;
-  display: block;
 }
+
 
