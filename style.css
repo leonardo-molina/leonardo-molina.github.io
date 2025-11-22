@@ -133,4 +133,11 @@ footer {
     object-fit: cover;
 }
 
+/* Image Wrapper*/
+.image-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+
 
