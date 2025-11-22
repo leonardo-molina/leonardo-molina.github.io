@@ -58,7 +58,7 @@ header span {
     display: inline-block;
     margin-top: 1rem;
     padding: 0.75rem 1.5rem;
-    background: #ffd86b; /* keep gold background */
+    background: #ffffff; /* keep gold background */
     color: #121212;      /* dark text for contrast */
     border-radius: 6px;
     text-decoration: none;
@@ -121,3 +121,4 @@ footer {
     margin-top: 3rem;
     color: #e0e0e0;
 }
+
