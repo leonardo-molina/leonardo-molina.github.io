@@ -60,7 +60,7 @@ body {
 
 /* RIGHT SIDE IMAGE SECTION */
 .right-side {
-  width: 60%;
+  width: 75%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,6 +73,7 @@ body {
   border-radius: 20px;
   object-fit: cover;
 }
+
 
 
 
