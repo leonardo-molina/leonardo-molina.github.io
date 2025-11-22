@@ -37,7 +37,7 @@ nav a {
 header {
     text-align: center;
     padding: 4rem 2rem;
-    background: linear-gradient(135deg, #4e73df, #6c9cff);
+    background: linear-gradient(135deg, #800000, #a00000);
     color: white;
 }
 
@@ -97,3 +97,4 @@ footer {
     margin-top: 3rem;
     color: #444;
 }
+
