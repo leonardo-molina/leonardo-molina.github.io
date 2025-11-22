@@ -139,5 +139,18 @@ footer {
     justify-content: center;
 }
 
+/*Video Wrapper*/
+.video-wrapper{
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+video{
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0,5);
+}
 
 
