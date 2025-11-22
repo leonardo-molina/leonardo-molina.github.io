@@ -22,7 +22,7 @@ nav {
 nav .logo {
     font-weight: 600;
     font-size: 1.2rem;
-    color: #fffff; /* subtle accent */
+    color: #ffffff; /* changed from gold to white */
 }
 
 nav ul {
@@ -38,7 +38,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #ffd86b; /* accent hover */
+    color: #ffffff; /* changed from gold to white */
 }
 
 /* Header section */
@@ -50,7 +50,7 @@ header {
 }
 
 header span {
-    color: #ffd86b; /* subtle highlight for your name */
+    color: #ffffff; /* changed from gold to white */
 }
 
 /* Button style */
@@ -58,7 +58,7 @@ header span {
     display: inline-block;
     margin-top: 1rem;
     padding: 0.75rem 1.5rem;
-    background: #ffd86b; /* gold accent */
+    background: #ffd86b; /* keep gold background */
     color: #121212;      /* dark text for contrast */
     border-radius: 6px;
     text-decoration: none;
@@ -105,12 +105,12 @@ header span {
 
 .proj-link {
     text-decoration: none;
-    color: #ffd86b;
+    color: #ffffff; /* changed from gold to white */
     font-weight: 600;
 }
 
 .proj-link:hover {
-    color: #ffdf90;
+    color: #ffffff; /* changed from hover gold to white */
 }
 
 /* Footer */
@@ -121,4 +121,3 @@ footer {
     margin-top: 3rem;
     color: #e0e0e0;
 }
-
