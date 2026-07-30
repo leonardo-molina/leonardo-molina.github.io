@@ -11,11 +11,12 @@ export default function Home() {
   const featuredProjects = projectsData.filter((p) => p.featured);
 
   return (
-    <div className="relative pt-32 pb-20 px-6 max-w-6xl mx-auto">
+    {/* Added id="overview" for the top of the page */}
+    <div id="overview" className="relative pt-32 pb-20 px-6 max-w-6xl mx-auto">
       <GridBackground />
 
-      {/* HERO SECTION */}
-      <section className="max-w-3xl">
+      {/* HERO SECTION - Added id="about" */}
+      <section id="about" className="max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -40,7 +41,7 @@ export default function Home() {
           className="flex flex-wrap gap-4 items-center"
         >
           <Link
-            href="/projects"
+            href="#projects"
             className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white px-5 py-2.5 rounded-md text-sm font-medium transition-colors"
           >
             View Case Studies <ArrowRight className="w-4 h-4" />
@@ -74,11 +75,13 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* DASHBOARD */}
-      <EngineeringDashboard />
+      {/* DASHBOARD - Added id="skills" wrapper */}
+      <section id="skills" className="mt-20 pt-10">
+        <EngineeringDashboard />
+      </section>
 
-      {/* FEATURED PROJECTS CASE STUDIES */}
-      <section className="mt-20">
+      {/* FEATURED PROJECTS CASE STUDIES - Added id="projects" */}
+      <section id="projects" className="mt-20 pt-20">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-xl font-medium font-mono">Selected Engineering Projects</h2>
           <Link href="/projects" className="text-xs font-mono text-accent hover:underline flex items-center gap-1">
@@ -114,6 +117,15 @@ export default function Home() {
           ))}
         </div>
       </section>
+      
+      {/* EXPERIENCE - Added placeholder section so the button works */}
+      <section id="experience" className="mt-20 pt-20 pb-20">
+        <h2 className="text-xl font-medium font-mono mb-8">Professional Experience</h2>
+        <div className="p-6 rounded-lg border border-surface-300/60 bg-surface-50/40 text-surface-500 text-sm font-mono">
+           // SYSTEM_LOG: Experience data compiling...
+        </div>
+      </section>
+
     </div>
   );
 }
