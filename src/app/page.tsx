@@ -11,7 +11,6 @@ export default function Home() {
   const featuredProjects = projectsData.filter((p) => p.featured);
 
   return (
-    {/* Added id="overview" for the top of the page */}
     <div id="overview" className="relative pt-32 pb-20 px-6 max-w-6xl mx-auto">
       <GridBackground />
 
