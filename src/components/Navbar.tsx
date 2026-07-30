@@ -1,49 +1,59 @@
 'use client';
 
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
-
-const navItems = [
-  { href: '/', label: 'Overview' },
-  { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/experience', label: 'Experience' },
-  { href: '/skills', label: 'Skills' },
-];
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  // Adds a sleek blur effect when you scroll down the page
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Overview', href: '#overview' },
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Skills', href: '#skills' },
+  ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-surface-0/80 backdrop-blur-md border-b border-surface-300/50">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="font-mono text-sm tracking-tight hover:text-accent transition-colors">
-          LEONARDO_MOLINA<span className="text-accent">.IO</span>
+    <header 
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-[#050806]/80 backdrop-blur-md border-b border-[rgba(120,150,130,0.15)] py-4 shadow-lg shadow-[#050806]/50' 
+          : 'bg-transparent py-6'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        
+        {/* Logo */}
+        <Link 
+          href="/" 
+          className="text-sm font-mono tracking-widest text-[#F4F6F5] hover:text-[#8CC6A0] transition-colors flex items-center gap-1"
+        >
+          LEONARDO_MOLINA<span className="text-[#5EA87B]">.IO</span>
         </Link>
-        <nav className="flex items-center gap-1 sm:gap-2">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`relative px-3 py-1.5 text-xs font-mono transition-colors ${
-                  isActive ? 'text-white' : 'text-surface-500 hover:text-surface-800'
-                }`}
-              >
-                {isActive && (
-                  <motion.div
-                    layoutId="activeNav"
-                    className="absolute inset-0 bg-surface-200 rounded-md -z-10"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-                {item.label}
-              </Link>
-            );
-          })}
+        
+        {/* Animated Links */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link 
+              key={link.name} 
+              href={link.href}
+              className="text-sm font-medium text-[#A2ADA6] hover:text-[#F4F6F5] transition-all duration-200 relative group"
+            >
+              {link.name}
+              {/* This span creates the smooth green underline animation on hover */}
+              <span className="absolute -bottom-1.5 left-0 w-0 h-[2px] bg-[#5EA87B] transition-all duration-300 group-hover:w-full rounded-full shadow-[0_0_8px_rgba(94,168,123,0.6)]"></span>
+            </Link>
+          ))}
         </nav>
+
       </div>
     </header>
   );
