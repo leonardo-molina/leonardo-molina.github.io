@@ -8,20 +8,31 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        accent: '#0052FF', // Or your preferred accent color
+        bg: {
+          primary: '#050806',
+          secondary: '#0C1210',
+        },
         surface: {
-          50: '#f9fafb',
-          100: '#f3f4f6',
-          200: '#e5e7eb',
-          300: '#d1d5db',
-          400: '#9ca3af',
-          500: '#6b7280',
-          600: '#4b5563',
-          700: '#374151',
-          800: '#1f2937',
-          900: '#111827',
-        }
-      }
+          DEFAULT: '#131A17',
+          elevated: '#18211D',
+        },
+        accent: {
+          primary: '#2F6B4F',
+          secondary: '#5EA87B',
+          highlight: '#8CC6A0',
+        },
+        txt: {
+          primary: '#F4F6F5',
+          secondary: '#A2ADA6',
+          muted: '#7E8882',
+        },
+        borderCustom: 'rgba(120,150,130,0.12)',
+        dividerCustom: 'rgba(255,255,255,0.05)',
+      },
+      fontFamily: {
+        sans: ['Geist', 'Inter', 'SF Pro', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'IBM Plex Mono', 'monospace'],
+      },
     },
   },
   plugins: [],
