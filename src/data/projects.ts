@@ -10,7 +10,7 @@ export const projectsData: Project[] = [
     featured: true,
     specifications: {
       duration: '4 Months',
-      role: 'Robotics & Controls Lead',
+      role: 'Robotics & Controls Project Lead',
       teamSize: '4 Engineers',
       languages: ['Python', 'C++'],
       hardware: ['RPi 4', 'RPLiDAR A1', 'RGB Camera', 'High-Torque DC Motors'],
@@ -18,11 +18,11 @@ export const projectsData: Project[] = [
       status: 'Completed'
     },
     sections: {
-      problem: 'Emergency response personnel need low-cost, rapidly deployable mapping platforms to navigate collapsed structures without risking human life.',
-      requirements: [
-        'Real-time 2D SLAM mapping in unknown indoor areas.',
-        'Dynamic obstacle avoidance at speeds up to 1.2 m/s.',
-        'Closed-loop trajectory tracking using wheel encoders and IMU telemetry.'
+      problem: 'I engineered the Helen-Searcher, an autonomous SCUTTLE robot designed to execute search and rescue missions within a simulated environment. The system was built to operate completely without user intervention, relying on real-time decision-making to navigate, avoid obstacles, map its surroundings, and secure designated targets. The primary objective was to scan the environment to locate and retrieve red targets (representing survivors) while ignoring blue targets (representing deceased).',
+      requirements: 'To handle the complex stream of sensory data, I developed a modular, multi-threaded software architecture in Python, running on a Raspberry Pi 4.' 
+        [
+        'Concurrency: I encapsulated each subsystem (navigation, mapping, detection, safe zone control, and telemetry) into its own dedicated background thread.',
+        'Thread Safety: To ensure data consistency across these concurrent modules, I engineered a shared RobotState central data store protected by a threading lock. This managed real-time access to the robot's pose, occupancy grid, operating mode, and target coordinates.',
       ],
       mechanicalDesign: 'Differential drive chassis optimized for payload capacity and low center of gravity. Integrated custom 3D-printed sensor mounts with vibration isolation.',
       electricalDesign: 'Multi-rail power distribution network converting 12V LiFePO4 to 5V/3A for compute and isolated motor controller power.',
