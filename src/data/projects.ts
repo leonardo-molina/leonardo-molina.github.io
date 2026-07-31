@@ -19,10 +19,10 @@ export const projectsData: Project[] = [
     },
     sections: {
       problem: 'I engineered the Helen-Searcher, an autonomous SCUTTLE robot designed to execute search and rescue missions within a simulated environment. The system was built to operate completely without user intervention, relying on real-time decision-making to navigate, avoid obstacles, map its surroundings, and secure designated targets. The primary objective was to scan the environment to locate and retrieve red targets (representing survivors) while ignoring blue targets (representing deceased).',
-      requirements: 'To handle the complex stream of sensory data, I developed a modular, multi-threaded software architecture in Python, running on a Raspberry Pi 4.' 
-        [
+      requirements: [
+        'To handle the complex stream of sensory data, I developed a modular, multi-threaded software architecture in Python, running on a Raspberry Pi 4.',
         'Concurrency: I encapsulated each subsystem (navigation, mapping, detection, safe zone control, and telemetry) into its own dedicated background thread.',
-        'Thread Safety: To ensure data consistency across these concurrent modules, I engineered a shared RobotState central data store protected by a threading lock. This managed real-time access to the robot's pose, occupancy grid, operating mode, and target coordinates.',
+        'Thread Safety: To ensure data consistency across these concurrent modules, I engineered a shared RobotState central data store protected by a threading lock. This managed real-time access to the robot\'s pose, occupancy grid, operating mode, and target coordinates.'
       ],
       mechanicalDesign: 'Differential drive chassis optimized for payload capacity and low center of gravity. Integrated custom 3D-printed sensor mounts with vibration isolation.',
       electricalDesign: 'Multi-rail power distribution network converting 12V LiFePO4 to 5V/3A for compute and isolated motor controller power.',
@@ -31,6 +31,77 @@ export const projectsData: Project[] = [
       results: 'Successfully mapped a 2,500 sq ft facility autonomously while pinpointing target markers with under 5cm location error.'
     },
     githubUrl: 'https://github.com/leonardo-molina'
+  },
+  {
+    slug: 'vision-guided-amr',
+    title: 'Vision-Guided Autonomous Mobile Robot',
+    shortDescription: 'Linux/Python real-time processing pipeline on Raspberry Pi with closed-loop PID velocity control and HSV color tracking.',
+    fullDescription: 'Custom embedded AMR leveraging high-speed vision telemetry and inertial sensors for automated trajectory correction.',
+    category: 'Controls',
+    featured: true,
+    specifications: {
+      duration: '3 Months',
+      role: 'Embedded Systems Lead',
+      teamSize: 'Individual Project',
+      languages: ['Python', 'C'],
+      hardware: ['Raspberry Pi', 'L298N Driver', 'Optical Encoders', 'IMU (MPU6050)'],
+      software: ['OpenCV', 'Linux Hardware PWM', 'I2C/SPI'],
+      status: 'Completed'
+    },
+    sections: {
+      problem: 'High-speed object tracking in mobile platforms often suffers from latency between vision pipelines and motor control loops.',
+      requirements: [
+        'Deterministic execution of sensor sampling and velocity correction at 50Hz.',
+        'Real-time color-space filtering with minimal frame latency.',
+        'Hardware-level PWM signal generation for precise motor response.'
+      ],
+      results: 'Achieved sub-10ms loop latency, enabling zero-overshoot trajectory correction during visual line-following at 1.5 m/s.'
+    }
+  },
+  {
+    slug: 'mars-rover-end-effector',
+    title:I can spot exactly what is causing the syntax errors in your `src/data/projects.ts` file. 
+
+The issue is in your first project (`scuttle-search-and-rescue`) inside the `sections.requirements` property. There are two specific syntax errors there:
+1. **Malformed Array:** You have a string followed immediately by an opening bracket `[` without a comma or proper formatting. 
+2. **Unescaped Quote:** Inside the array, you use the word `robot's` within a string wrapped in single quotes (`'`). That apostrophe prematurely ends the string and breaks the code. 
+
+Here is the fully corrected file. I merged the introductory sentence into the `requirements` array and swapped the single quotes for double quotes on the final bullet to safely handle the apostrophe in "robot's".
+
+```typescript
+import { Project } from '@/types';
+
+export const projectsData: Project[] = [
+  {
+    slug: 'scuttle-search-and-rescue',
+    title: 'SCUTTLE Search & Rescue AMR',
+    shortDescription: 'Autonomous mobile robot with differential kinematics, multi-loop PID, LiDAR SLAM, and finite-state navigation.',
+    fullDescription: 'Designed and deployed an autonomous search-and-rescue robot capable of real-time mapping, dynamic obstacle avoidance, and target recognition in GPS-denied environments.',
+    category: 'Robotics',
+    featured: true,
+    specifications: {
+      duration: '4 Months',
+      role: 'Robotics & Controls Project Lead',
+      teamSize: '4 Engineers',
+      languages: ['Python', 'C++'],
+      hardware: ['RPi 4', 'RPLiDAR A1', 'RGB Camera', 'High-Torque DC Motors'],
+      software: ['ROS 2', 'OpenCV', 'Linux', 'Gazebo'],
+      status: 'Completed'
+    },
+    sections: {
+      problem: 'I engineered the Helen-Searcher, an autonomous SCUTTLE robot designed to execute search and rescue missions within a simulated environment. The system was built to operate completely without user intervention, relying on real-time decision-making to navigate, avoid obstacles, map its surroundings, and secure designated targets. The primary objective was to scan the environment to locate and retrieve red targets (representing survivors) while ignoring blue targets (representing deceased).',
+      requirements: [
+        'To handle the complex stream of sensory data, I developed a modular, multi-threaded software architecture in Python, running on a Raspberry Pi 4.',
+        'Concurrency: I encapsulated each subsystem (navigation, mapping, detection, safe zone control, and telemetry) into its own dedicated background thread.',
+        "Thread Safety: To ensure data consistency across these concurrent modules, I engineered a shared RobotState central data store protected by a threading lock. This managed real-time access to the robot's pose, occupancy grid, operating mode, and target coordinates."
+      ],
+      mechanicalDesign: 'Differential drive chassis optimized for payload capacity and low center of gravity. Integrated custom 3D-printed sensor mounts with vibration isolation.',
+      electricalDesign: 'Multi-rail power distribution network converting 12V LiFePO4 to 5V/3A for compute and isolated motor controller power.',
+      softwareArchitecture: 'ROS 2 navigation stack utilizing Nav2, custom finite-state machine nodes for search logic, and OpenCV for vision processing.',
+      algorithms: 'Multi-loop PID velocity controller, Extended Kalman Filter (EKF) sensor fusion, and dynamic window approach (DWA) for local path planning.',
+      results: 'Successfully mapped a 2,500 sq ft facility autonomously while pinpointing target markers with under 5cm location error.'
+    },
+    githubUrl: '[https://github.com/leonardo-molina](https://github.com/leonardo-molina)'
   },
   {
     slug: 'vision-guided-amr',
