@@ -4,7 +4,7 @@ export const projectsData: Project[] = [
   {
     slug: 'scuttle-search-and-rescue',
     title: 'SCUTTLE Search & Rescue AMR',
-    shortDescription: 'Autonomous mobile robot with differential kinematics, multi-loop PID, LiDAR SLAM, and finite-state navigation.',
+    shortDescription: 'Autonomous mobile robot developed for search and rescue operations featuring LiDAR mapping, HSV color-based object detection, and a custom 3D-printed parallel gripper.',
     fullDescription: 'Designed and deployed an autonomous search-and-rescue robot capable of real-time mapping, dynamic obstacle avoidance, and target recognition in GPS-denied environments.',
     category: 'Robotics',
     featured: true,
@@ -14,21 +14,21 @@ export const projectsData: Project[] = [
       teamSize: '4 Engineers',
       languages: ['Python', 'C++'],
       hardware: ['RPi 4', 'RPLiDAR A1', 'RGB Camera', 'High-Torque DC Motors'],
-      software: ['ROS 2', 'OpenCV', 'Linux', 'Gazebo'],
+      software: ['ROS 2', 'OpenCV', 'Linux', 'Gazebo', 'Flask'],
       status: 'Completed'
     },
     sections: {
-      problem: 'I engineered the Helen-Searcher, an autonomous SCUTTLE robot designed to execute search and rescue missions within a simulated environment. The system was built to operate completely without user intervention, relying on real-time decision-making to navigate, avoid obstacles, map its surroundings, and secure designated targets. The primary objective was to scan the environment to locate and retrieve red targets (representing survivors) while ignoring blue targets (representing deceased).',
+      problem: 'I engineered the Helen-Searcher, an autonomous SCUTTLE robot designed to execute search and rescue missions within a simulated environment. The system was built to operate completely without user intervention, relying on real-time decision-making to navigate, avoid obstacles, map its surroundings, and secure designated targets. The primary objective was to scan the environment to locate and retrieve red targets (representing survivors) while ignoring blue targets.',
       requirements: [
         'To handle the complex stream of sensory data, I developed a modular, multi-threaded software architecture in Python, running on a Raspberry Pi 4.',
         'Concurrency: I encapsulated each subsystem (navigation, mapping, detection, safe zone control, and telemetry) into its own dedicated background thread.',
-        "Thread Safety: To ensure data consistency across these concurrent modules, I engineered a shared RobotState central data store protected by a threading lock. This managed real-time access to the robot's pose, occupancy grid, operating mode, and target coordinates."
+        'Thread Safety: To ensure data consistency across these concurrent modules, I engineered a shared RobotState central data store protected by a threading lock. This managed real-time access to the robot pose, occupancy grid, operating mode, and target coordinates.'
       ],
-      mechanicalDesign: 'Differential drive chassis optimized for payload capacity and low center of gravity. Integrated custom 3D-printed sensor mounts with vibration isolation.',
+      mechanicalDesign: 'For the physical manipulation of targets, I designed a 3D-printed rack-and-pinion style parallel gripper, driven by a TowerPro MG995 servo motor. The mechanism included 11 components and utilized a 2:1 gear reduction train. To solve payload slipping caused by low mass and smooth surfaces, I applied a surface treatment to the gripping faces to create a rough texture, significantly increasing static friction.',
       electricalDesign: 'Multi-rail power distribution network converting 12V LiFePO4 to 5V/3A for compute and isolated motor controller power.',
-      softwareArchitecture: 'ROS 2 navigation stack utilizing Nav2, custom finite-state machine nodes for search logic, and OpenCV for vision processing.',
-      algorithms: 'Multi-loop PID velocity controller, Extended Kalman Filter (EKF) sensor fusion, and dynamic window approach (DWA) for local path planning.',
-      results: 'Successfully mapped a 2,500 sq ft facility autonomously while pinpointing target markers with under 5cm location error.'
+      softwareArchitecture: 'Spatial awareness relied heavily on a combination of 2D LiDAR and computer vision. I integrated a SICK TiM561 LiDAR sensor and applied a ray-casting technique based on Bresenham line algorithm to create a dynamic 200x200 cell occupancy grid. I utilized an HP Webcam W200 to process video at 5 fps, converting frames to HSV color space with dual-range masks to isolate red pixels.',
+      algorithms: 'Multi-phase navigation algorithm: the robot initiated with LiDAR-guided wall following, transitioned into an exploration mode to map the inner environment, and finally handed control over for block retrieval using visual servoing to keep the red block centered in the frame.',
+      results: 'To monitor the mission in real-time, I built a Flask-based web server hosted directly on the Raspberry Pi. The dashboard featured a JavaScript client that polled a JSON snapshot of the shared state every second, providing a live top-down view of the generated occupancy grid, the robot heading, and the location of confirmed targets.'
     },
     githubUrl: 'https://github.com/leonardo-molina'
   },
