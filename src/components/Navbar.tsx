@@ -13,12 +13,13 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Restored these to link to separate pages instead of scrolling down one page
   const navLinks = [
-    { name: 'Overview', href: '#overview' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Skills', href: '#skills' },
+    { name: 'Overview', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Experience', href: '/experience' },
+    { name: 'Skills', href: '/skills' },
   ];
 
   return (
@@ -48,7 +49,7 @@ export default function Navbar() {
               className="text-sm font-medium text-[#A2ADA6] hover:text-[#F4F6F5] transition-all duration-200 relative group"
             >
               {link.name}
-              {/* This span creates the smooth green underline animation on hover */}
+              {/* Smooth green underline animation on hover */}
               <span className="absolute -bottom-1.5 left-0 w-0 h-[2px] bg-[#5EA87B] transition-all duration-300 group-hover:w-full rounded-full shadow-[0_0_8px_rgba(94,168,123,0.6)]"></span>
             </Link>
           ))}
