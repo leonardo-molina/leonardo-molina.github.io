@@ -14,13 +14,9 @@ export default function Home() {
     <div id="overview" className="relative pt-32 pb-20 px-6 max-w-6xl mx-auto">
       <GridBackground />
 
-      {/* HERO SECTION - Added id="about" */}
+      {/* HERO SECTION - Initial motion.div removed to rely on template.tsx */}
       <section id="about" className="max-w-3xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div>
           <span className="inline-block px-3 py-1 rounded-full text-xs font-mono bg-surface-200 text-surface-700 border border-surface-300 mb-6">
             Texas A&M University • B.S. Engineering Technology
           </span>
@@ -30,9 +26,9 @@ export default function Home() {
           <p className="text-lg sm:text-xl text-surface-600 font-normal leading-relaxed mb-8">
             Multidisciplinary Engineering Technology Student at Texas A&M University specializing in Autonomous Systems, Embedded Control, Motion Planning, and Industrial Automation.
           </p>
-        </motion.div>
+        </div>
 
-        {/* BUTTON ACTIONS */}
+        {/* BUTTON ACTIONS - Kept motion.div for the delayed stagger effect */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -74,12 +70,12 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* DASHBOARD - Added id="skills" wrapper */}
+      {/* DASHBOARD */}
       <section id="skills" className="mt-20 pt-10">
         <EngineeringDashboard />
       </section>
 
-      {/* FEATURED PROJECTS CASE STUDIES - Added id="projects" */}
+      {/* FEATURED PROJECTS CASE STUDIES */}
       <section id="projects" className="mt-20 pt-20">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-xl font-medium font-mono">Selected Engineering Projects</h2>
@@ -117,7 +113,7 @@ export default function Home() {
         </div>
       </section>
       
-      {/* EXPERIENCE - Added placeholder section so the button works */}
+      {/* EXPERIENCE */}
       <section id="experience" className="mt-20 pt-20 pb-20">
         <h2 className="text-xl font-medium font-mono mb-8">Professional Experience</h2>
         <div className="p-6 rounded-lg border border-surface-300/60 bg-surface-50/40 text-surface-500 text-sm font-mono">
