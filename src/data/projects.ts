@@ -17,6 +17,20 @@ export const projectsData: Project[] = [
       software: ['ROS 2', 'OpenCV', 'Linux', 'Gazebo', 'Flask'],
       status: 'Completed'
     },
+    images: {
+      problem: {
+        src: '/system-overview-photo.png', 
+        caption: 'Figure 1: The Helen-Searcher SCUTTLE AMR during testing.'
+      },
+      requirements: {
+        src: '/software-architecture-diagram.png',
+        caption: 'Figure 2: Multi-threaded state management architecture.'
+      },
+      mechanicalDesign: {
+        src: '/gripper-close-up.png',
+        caption: 'Figure 3: Custom 3D-printed parallel gripper mechanism.'
+      }
+    },
     sections: {
       problem: 'I engineered the Helen-Searcher, an autonomous SCUTTLE robot designed to execute search and rescue missions within a simulated environment. The system was built to operate completely without user intervention, relying on real-time decision-making to navigate, avoid obstacles, map its surroundings, and secure designated targets. The primary objective was to scan the environment to locate and retrieve red targets (representing survivors) while ignoring blue targets.',
       requirements: [
