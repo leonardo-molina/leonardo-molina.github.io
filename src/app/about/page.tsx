@@ -18,14 +18,15 @@ export default function AboutPage() {
           </h1>
           <div className="space-y-6 text-[#A2ADA6] text-lg leading-relaxed">
             <p>
-              I am a Multidisciplinary Engineering Technology student at Texas A&M University 
-              (Minor in Embedded Systems Integration) focusing on the bridge between physical 
-              mechatronic design and real-time control software.
+              I'm a Mechatronics Engineering Technology student at Texas A&M University 
+              pursuing a minor in Embedded Systems Integration. My interests are in robotics, 
+              embedded systems, control systems, autonomous systems, and industrial automation.
             </p>
             <p>
-              My engineering philosophy focuses on systems-level precision: building reliable 
-              ROS 2 navigation pipelines, tuning closed-loop motor controllers, and designing 
-              robust physical hardware capable of executing complex physical manipulation.
+              I enjoy building projects that bring together software and hardware—from autonomous 
+              robots and embedded controllers to mechanical design and automation tools. I'm especially 
+              interested in understanding how individual components work together to create reliable, 
+              real-world engineering systems.
             </p>
           </div>
         </div>
