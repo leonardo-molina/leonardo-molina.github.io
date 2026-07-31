@@ -30,12 +30,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         <div className="lg:col-span-2 space-y-12">
           <section>
-            <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 01. Problem Statement</h2>
+            <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 01. System Overview</h2>
             <p className="text-surface-800 leading-relaxed">{project.sections.problem}</p>
           </section>
 
           <section>
-            <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 02. Technical Requirements</h2>
+            <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 02. Software Architecture & State Management</h2>
             <ul className="list-disc list-inside space-y-2 text-surface-800">
               {project.sections.requirements.map((req, i) => (
                 <li key={i}>{req}</li>
@@ -45,20 +45,20 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
           {project.sections.mechanicalDesign && (
             <section>
-              <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 03. Mechanical Design</h2>
+              <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 03. Perception & Navigation Pipelines</h2>
               <p className="text-surface-800 leading-relaxed">{project.sections.mechanicalDesign}</p>
             </section>
           )}
 
           {project.sections.softwareArchitecture && (
             <section>
-              <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 04. Software Architecture</h2>
+              <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 04. Hardware & Mechanisms</h2>
               <p className="text-surface-800 leading-relaxed">{project.sections.softwareArchitecture}</p>
             </section>
           )}
 
           <section>
-            <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 05. Results & Validation</h2>
+            <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 05. Telemetry & Dashboard</h2>
             <p className="text-surface-800 leading-relaxed">{project.sections.results}</p>
           </section>
         </div>
