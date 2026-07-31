@@ -14,9 +14,14 @@ export interface Project {
     software: string[];
     status: 'Completed' | 'In Development' | 'Maintained';
   };
-  image?: {
-    src: string;
-    caption: string;
+  images?: {
+    problem?: { src: string; caption: string };
+    requirements?: { src: string; caption: string };
+    mechanicalDesign?: { src: string; caption: string };
+    electricalDesign?: { src: string; caption: string };
+    softwareArchitecture?: { src: string; caption: string };
+    algorithms?: { src: string; caption: string };
+    results?: { src: string; caption: string };
   };
   sections: {
     problem: string;
