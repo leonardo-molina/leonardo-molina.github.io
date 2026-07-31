@@ -24,7 +24,7 @@ export default function Home() {
             Engineering Intelligent Systems.
           </h1>
           <p className="text-lg sm:text-xl text-surface-600 font-normal leading-relaxed mb-8">
-            Mechatronics Engineering Student at Texas A&M University specializing in Autonomous Systems, Embedded Control, Motion Planning, and Industrial Automation.
+            Mechatronics student at Texas A&M University focused on robotics, embedded systems, and autonomous systems.
           </p>
         </div>
 
