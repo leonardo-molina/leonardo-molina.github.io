@@ -29,10 +29,28 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       {/* SPECIFICATIONS SIDEBAR / GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         <div className="lg:col-span-2 space-y-12">
-          <section>
-            <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 01. System Overview</h2>
-            <p className="text-surface-800 leading-relaxed">{project.sections.problem}</p>
-          </section>
+          
+          {/* 01. SYSTEM OVERVIEW */}
+<section>
+  <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 01. System Overview</h2>
+  <p className="text-surface-800 leading-relaxed">{project.sections.problem}</p>
+  
+  {/* Photo Renderer linked to project.images.overview */}
+  {project.images?.overview && (
+    <figure className="mt-6 space-y-2">
+      <img
+        src={project.images.overview.src}
+        alt={project.images.overview.caption || "System Overview"}
+        className="w-full rounded-lg border border-surface-300/60 object-cover"
+      />
+      {project.images.overview.caption && (
+        <figcaption className="text-xs font-mono text-surface-500 text-center">
+          {project.images.overview.caption}
+        </figcaption>
+      )}
+    </figure>
+  )}
+</section>
 
           <section>
             <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 02. Software Architecture & State Management</h2>
