@@ -27,7 +27,7 @@ export const projectsData: Project[] = [
         caption: 'Figure 2: Multi-threaded state management architecture.'
       },
       mechanicalDesign: {
-        src: '/gripper-close-up.png',
+        src: '/Gripper.jpg',
         caption: 'Figure 3: Custom 3D-printed parallel gripper mechanism.'
       }
     },
