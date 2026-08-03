@@ -15,6 +15,7 @@ export interface Project {
     status: 'Completed' | 'In Development' | 'Maintained';
   };
   images?: {
+    overview?: { src: string; caption: string };
     problem?: { src: string; caption: string };
     requirements?: { src: string; caption: string };
     mechanicalDesign?: { src: string; caption: string };
