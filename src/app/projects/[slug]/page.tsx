@@ -63,14 +63,14 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
           {project.sections.mechanicalDesign && (
             <section>
-              <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 03. Perception & Navigation Pipelines</h2>
+              <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 03. Hardware & Mechanisms</h2>
               <p className="text-surface-800 leading-relaxed">{project.sections.mechanicalDesign}</p>
             </section>
           )}
 
           {project.sections.softwareArchitecture && (
             <section>
-              <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 04. Hardware & Mechanisms</h2>
+              <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">// 04. Perception & Navigation Pipelines</h2>
               <p className="text-surface-800 leading-relaxed">{project.sections.softwareArchitecture}</p>
             </section>
           )}
