@@ -18,7 +18,7 @@ export const projectsData: Project[] = [
       status: 'Completed'
     },
     images: {
-      problem: {
+      overview: {
         src: '/SCUTTLERobot.jpg', 
         caption: 'Figure 1: The Helen-Searcher SCUTTLE AMR during testing.'
       },
