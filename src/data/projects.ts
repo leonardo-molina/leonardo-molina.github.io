@@ -19,7 +19,7 @@ export const projectsData: Project[] = [
     },
     images: {
       problem: {
-        src: '/system-overview-photo.png', 
+        src: '/SCUTTLERobot.jpg', 
         caption: 'Figure 1: The Helen-Searcher SCUTTLE AMR during testing.'
       },
       requirements: {
