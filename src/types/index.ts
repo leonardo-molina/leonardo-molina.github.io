@@ -16,21 +16,16 @@ export interface Project {
   };
   images?: {
     overview?: { src: string; caption: string };
-    problem?: { src: string; caption: string };
-    requirements?: { src: string; caption: string };
-    mechanicalDesign?: { src: string; caption: string };
-    electricalDesign?: { src: string; caption: string };
-    softwareArchitecture?: { src: string; caption: string };
-    algorithms?: { src: string; caption: string };
+    approach?: { src: string; caption: string };
+    hardware?: { src: string; caption: string };
+    software?: { src: string; caption: string };
     results?: { src: string; caption: string };
   };
   sections: {
-    problem: string;
-    requirements: string[];
-    mechanicalDesign?: string;
-    electricalDesign?: string;
-    softwareArchitecture?: string;
-    algorithms?: string;
+    overview: string;
+    approach: string;
+    hardware?: string;
+    software?: string;
     results: string;
   };
   githubUrl?: string;
