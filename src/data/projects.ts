@@ -26,10 +26,16 @@ export const projectsData: Project[] = [
         src: '/Gripper.jpg',
         caption: 'Figure 2: Custom 3D-printed parallel gripper mechanism.'
       },
-      software: {
-        src: '/ComputerScuttleVision.jpg',
-        caption: 'Figure 3: Multi-threaded state management architecture.'
-      }
+      software: [
+        {
+          src: '/ComputerScuttleVision.jpg',
+          caption: 'Figure 3: Multi-threaded state management architecture.'
+        },
+        {
+          src: '/SCUTTLEDashboard.jpg',
+          caption: 'Figure 4: REPLACE_ME with your second photo caption.'
+        }
+      ]
     },
     sections: {
       overview: 'I engineered the Helen-Searcher, an autonomous SCUTTLE robot designed to execute search and rescue missions within a simulated environment. The system was built to operate completely without user intervention, relying on real-time decision-making to navigate, avoid obstacles, map its surroundings, and secure designated targets. The primary objective was to scan the environment to locate and retrieve red targets (representing survivors) while ignoring blue targets. To handle the complex stream of sensory data, I developed a modular, multi-threaded software architecture in Python running on a Raspberry Pi 4, encapsulating navigation, mapping, detection, safe-zone control, and telemetry into dedicated background threads coordinated through a shared, lock-protected RobotState store.',
