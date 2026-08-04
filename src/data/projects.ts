@@ -33,7 +33,7 @@ export const projectsData: Project[] = [
         },
         {
           src: '/SCUTTLEDashboard.jpg',
-          caption: 'Figure 4: REPLACE_ME with your second photo caption.'
+          caption: 'Figure 4: Live mission dashboard showing the occupancy grid, robot pose, and detected targets.'
         }
       ]
     },
