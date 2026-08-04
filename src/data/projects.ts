@@ -22,26 +22,20 @@ export const projectsData: Project[] = [
         src: '/SCUTTLERobot.jpg', 
         caption: 'Figure 1: The Helen-Searcher SCUTTLE AMR during testing.'
       },
-      requirements: {
-        src: '/software-architecture-diagram.png',
-        caption: 'Figure 2: Multi-threaded state management architecture.'
-      },
-      mechanicalDesign: {
+      hardware: {
         src: '/Gripper.jpg',
-        caption: 'Figure 3: Custom 3D-printed parallel gripper mechanism.'
+        caption: 'Figure 2: Custom 3D-printed parallel gripper mechanism.'
+      },
+      software: {
+        src: '/software-architecture-diagram.png',
+        caption: 'Figure 3: Multi-threaded state management architecture.'
       }
     },
     sections: {
-      problem: 'I engineered the Helen-Searcher, an autonomous SCUTTLE robot designed to execute search and rescue missions within a simulated environment. The system was built to operate completely without user intervention, relying on real-time decision-making to navigate, avoid obstacles, map its surroundings, and secure designated targets. The primary objective was to scan the environment to locate and retrieve red targets (representing survivors) while ignoring blue targets.',
-      requirements: [
-        'To handle the complex stream of sensory data, I developed a modular, multi-threaded software architecture in Python, running on a Raspberry Pi 4.',
-        'Concurrency: I encapsulated each subsystem (navigation, mapping, detection, safe zone control, and telemetry) into its own dedicated background thread.',
-        'Thread Safety: To ensure data consistency across these concurrent modules, I engineered a shared RobotState central data store protected by a threading lock. This managed real-time access to the robot pose, occupancy grid, operating mode, and target coordinates.'
-      ],
-      mechanicalDesign: 'For the physical manipulation of targets, I designed a 3D-printed rack-and-pinion style parallel gripper, driven by a TowerPro MG995 servo motor. The mechanism included 11 components and utilized a 2:1 gear reduction train. To solve payload slipping caused by low mass and smooth surfaces, I applied a surface treatment to the gripping faces to create a rough texture, significantly increasing static friction.',
-      electricalDesign: 'Multi-rail power distribution network converting 12V LiFePO4 to 5V/3A for compute and isolated motor controller power.',
-      softwareArchitecture: 'Spatial awareness relied heavily on a combination of 2D LiDAR and computer vision. I integrated a SICK TiM561 LiDAR sensor and applied a ray-casting technique based on Bresenham line algorithm to create a dynamic 200x200 cell occupancy grid. I utilized an HP Webcam W200 to process video at 5 fps, converting frames to HSV color space with dual-range masks to isolate red pixels.',
-      algorithms: 'Multi-phase navigation algorithm: the robot initiated with LiDAR-guided wall following, transitioned into an exploration mode to map the inner environment, and finally handed control over for block retrieval using visual servoing to keep the red block centered in the frame.',
+      overview: 'I engineered the Helen-Searcher, an autonomous SCUTTLE robot designed to execute search and rescue missions within a simulated environment. The system was built to operate completely without user intervention, relying on real-time decision-making to navigate, avoid obstacles, map its surroundings, and secure designated targets. The primary objective was to scan the environment to locate and retrieve red targets (representing survivors) while ignoring blue targets. To handle the complex stream of sensory data, I developed a modular, multi-threaded software architecture in Python running on a Raspberry Pi 4, encapsulating navigation, mapping, detection, safe-zone control, and telemetry into dedicated background threads coordinated through a shared, lock-protected RobotState store.',
+      approach: 'My approach split the mission into three coordinated engineering efforts. On the hardware side, I designed a custom gripper mechanism built to reliably secure lightweight, smooth-surfaced targets. On the software side, I built a perception and navigation pipeline that fused LiDAR-based mapping with HSV color-based vision to drive autonomous exploration and target retrieval. Tying it together was a thread-safe state layer that let every subsystem read and write a single source of truth in real time — the same layer that powers the live monitoring dashboard described in the results below.',
+      hardware: 'For the physical manipulation of targets, I designed a 3D-printed rack-and-pinion style parallel gripper, driven by a TowerPro MG995 servo motor. The mechanism included 11 components and utilized a 2:1 gear reduction train. To solve payload slipping caused by low mass and smooth surfaces, I applied a surface treatment to the gripping faces to create a rough texture, significantly increasing static friction. Power was distributed through a multi-rail network converting a 12V LiFePO4 battery to a regulated 5V/3A rail for compute, with isolated supply lines protecting the motor controllers.',
+      software: 'Spatial awareness relied on a combination of 2D LiDAR and computer vision. I integrated a SICK TiM561 LiDAR sensor and applied a ray-casting technique based on the Bresenham line algorithm to build a dynamic 200x200 cell occupancy grid, while an HP Webcam W200 processed video at 5 fps, converting frames to HSV color space with dual-range masks to isolate red pixels. On top of this perception stack ran a multi-phase navigation algorithm: the robot began with LiDAR-guided wall following, transitioned into an exploration mode to map the inner environment, and finally handed off to visual servoing to keep the red block centered in frame during retrieval.',
       results: 'To monitor the mission in real-time, I built a Flask-based web server hosted directly on the Raspberry Pi. The dashboard featured a JavaScript client that polled a JSON snapshot of the shared state every second, providing a live top-down view of the generated occupancy grid, the robot heading, and the location of confirmed targets.'
     },
     githubUrl: 'https://github.com/leonardo-molina'
@@ -63,12 +57,8 @@ export const projectsData: Project[] = [
       status: 'Completed'
     },
     sections: {
-      problem: 'High-speed object tracking in mobile platforms often suffers from latency between vision pipelines and motor control loops.',
-      requirements: [
-        'Deterministic execution of sensor sampling and velocity correction at 50Hz.',
-        'Real-time color-space filtering with minimal frame latency.',
-        'Hardware-level PWM signal generation for precise motor response.'
-      ],
+      overview: 'High-speed object tracking in mobile platforms often suffers from latency between vision pipelines and motor control loops. The system needed deterministic execution of sensor sampling and velocity correction at 50Hz, real-time color-space filtering with minimal frame latency, and hardware-level PWM signal generation for precise motor response.',
+      approach: 'I kept the entire control loop close to the hardware: a Python vision pipeline handled HSV-based color tracking while a dedicated, hardware-timed PWM layer handled motor response, so that sensing and actuation stayed tightly synchronized instead of drifting apart under load.',
       results: 'Achieved sub-10ms loop latency, enabling zero-overshoot trajectory correction during visual line-following at 1.5 m/s.'
     }
   },
@@ -89,12 +79,8 @@ export const projectsData: Project[] = [
       status: 'Maintained'
     },
     sections: {
-      problem: 'The URC requires an end-effector capable of handling diverse tasks: pressing buttons, toggling switches, lifting 5kg payloads, and picking up delicate soil samples.',
-      requirements: [
-        'Underactuated finger mechanism to conform to irregular objects.',
-        'Integrated force feedback to avoid crushing delicate equipment.',
-        'High force-to-weight ratio payload capacity.'
-      ],
+      overview: 'The URC requires an end-effector capable of handling diverse tasks: pressing buttons, toggling switches, lifting 5kg payloads, and picking up delicate soil samples. That meant designing an underactuated finger mechanism able to conform to irregular objects, integrating force feedback to avoid crushing delicate equipment, and achieving a high force-to-weight ratio for payload capacity.',
+      approach: 'My approach centered the mechanical design on underactuation, letting a small number of actuators drive multiple degrees of freedom so the gripper could passively conform to unknown object geometries, while load cells layered on top provided the force feedback needed to handle rugged tools and fragile samples with the same hand.',
       results: 'Successfully passed field qualification tests, demonstrating reliable grip adaptability on varied surface geometries.'
     }
   },
@@ -115,12 +101,8 @@ export const projectsData: Project[] = [
       status: 'Completed'
     },
     sections: {
-      problem: 'Manual entry of mill test data introduced delay and risk into quality control verification pipelines.',
-      requirements: [
-        'Automated extraction and formatting of mill test measurements.',
-        'Direct transactional integration with enterprise SAP database.',
-        'Audit-ready error logging and exception handling.'
-      ],
+      overview: 'Manual entry of mill test data introduced delay and risk into quality control verification pipelines. The project needed automated extraction and formatting of mill test measurements, direct transactional integration with the enterprise SAP database, and audit-ready error logging and exception handling.',
+      approach: 'I treated this as an end-to-end pipeline problem: automating data extraction at the source, integrating directly with SAP\'s transactional layer instead of relying on manual re-entry, and wrapping every step in structured logging so errors could be traced and audited rather than silently dropped.',
       results: 'Reduced manual processing time by over 80% while ensuring 100% data fidelity across manufacturing logs.'
     }
   }
