@@ -43,13 +43,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <div className="lg:col-span-2 space-y-12">
           
           {/* 01. SYSTEM OVERVIEW */}
-          {project.sections.problem && (
+          {project.sections.overview && (
             <section>
               <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">
                 // 01. System Overview
               </h2>
               <p className="text-surface-800 leading-relaxed">
-                {project.sections.problem}
+                {project.sections.overview}
               </p>
 
               {project.images?.overview && (
@@ -69,40 +69,53 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </section>
           )}
 
-          {/* 02. SYSTEM REQUIREMENTS & SPECIFICATIONS */}
-          {project.sections.requirements && project.sections.requirements.length > 0 && (
+          {/* 02. ENGINEERING APPROACH */}
+          {project.sections.approach && (
             <section>
               <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">
-                // 02. Core Requirements
+                // 02. Engineering Approach
               </h2>
-              <ul className="list-disc list-inside space-y-2 text-surface-800">
-                {project.sections.requirements.map((req, i) => (
-                  <li key={i}>{req}</li>
-                ))}
-              </ul>
+              <p className="text-surface-800 leading-relaxed">
+                {project.sections.approach}
+              </p>
+
+              {project.images?.approach && (
+                <figure className="mt-6 space-y-2">
+                  <img
+                    src={project.images.approach.src}
+                    alt={project.images.approach.caption || "Engineering Approach"}
+                    className="w-full rounded-lg border border-surface-300/60 object-cover"
+                  />
+                  {project.images.approach.caption && (
+                    <figcaption className="text-xs font-mono text-surface-500 text-center">
+                      {project.images.approach.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              )}
             </section>
           )}
 
           {/* 03. HARDWARE & MECHANISMS */}
-          {project.sections.mechanicalDesign && (
+          {project.sections.hardware && (
             <section>
               <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">
                 // 03. Hardware & Mechanisms
               </h2>
               <p className="text-surface-800 leading-relaxed">
-                {project.sections.mechanicalDesign}
+                {project.sections.hardware}
               </p>
 
-              {project.images?.mechanicalDesign && (
+              {project.images?.hardware && (
                 <figure className="mt-6 space-y-2">
                   <img
-                    src={project.images.mechanicalDesign.src}
-                    alt={project.images.mechanicalDesign.caption || "Hardware & Mechanisms"}
+                    src={project.images.hardware.src}
+                    alt={project.images.hardware.caption || "Hardware & Mechanisms"}
                     className="w-full rounded-lg border border-surface-300/60 object-cover"
                   />
-                  {project.images.mechanicalDesign.caption && (
+                  {project.images.hardware.caption && (
                     <figcaption className="text-xs font-mono text-surface-500 text-center">
-                      {project.images.mechanicalDesign.caption}
+                      {project.images.hardware.caption}
                     </figcaption>
                   )}
                 </figure>
@@ -110,29 +123,26 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </section>
           )}
 
-          {/* 04. PERCEPTION & NAVIGATION PIPELINES */}
-          {(project.sections.softwareArchitecture || project.sections.algorithms) && (
+          {/* 04. SOFTWARE & SYSTEMS */}
+          {project.sections.software && (
             <section>
               <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">
-                // 04. Perception & Navigation Pipelines
+                // 04. Software & Systems
               </h2>
               <p className="text-surface-800 leading-relaxed">
-                {project.sections.softwareArchitecture || project.sections.algorithms}
+                {project.sections.software}
               </p>
 
-              {(project.images?.softwareArchitecture || project.images?.algorithms) && (
+              {project.images?.software && (
                 <figure className="mt-6 space-y-2">
                   <img
-                    src={(project.images.softwareArchitecture || project.images.algorithms)?.src}
-                    alt={
-                      (project.images.softwareArchitecture || project.images.algorithms)?.caption ||
-                      "Perception & Navigation"
-                    }
+                    src={project.images.software.src}
+                    alt={project.images.software.caption || "Software & Systems"}
                     className="w-full rounded-lg border border-surface-300/60 object-cover"
                   />
-                  {(project.images.softwareArchitecture || project.images.algorithms)?.caption && (
+                  {project.images.software.caption && (
                     <figcaption className="text-xs font-mono text-surface-500 text-center">
-                      {(project.images.softwareArchitecture || project.images.algorithms)?.caption}
+                      {project.images.software.caption}
                     </figcaption>
                   )}
                 </figure>
@@ -140,7 +150,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </section>
           )}
 
-          {/* 05. RESULTS & TESTING (If present in project) */}
+          {/* 05. RESULTS & VALIDATION */}
           {project.sections.results && (
             <section>
               <h2 className="text-sm font-mono text-surface-500 uppercase tracking-wider mb-3">
