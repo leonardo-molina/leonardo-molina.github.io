@@ -27,7 +27,7 @@ export const projectsData: Project[] = [
         caption: 'Figure 2: Custom 3D-printed parallel gripper mechanism.'
       },
       software: {
-        src: '/software-architecture-diagram.png',
+        src: '/ComputerScuttleVision.jpg',
         caption: 'Figure 3: Multi-threaded state management architecture.'
       }
     },
