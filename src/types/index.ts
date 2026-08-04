@@ -18,7 +18,7 @@ export interface Project {
     overview?: { src: string; caption: string };
     approach?: { src: string; caption: string };
     hardware?: { src: string; caption: string };
-    software?: { src: string; caption: string };
+    software?: { src: string; caption: string } | { src: string; caption: string }[];
     results?: { src: string; caption: string };
   };
   sections: {
