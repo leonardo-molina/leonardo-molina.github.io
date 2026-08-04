@@ -134,18 +134,37 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               </p>
 
               {project.images?.software && (
-                <figure className="mt-6 space-y-2">
-                  <img
-                    src={project.images.software.src}
-                    alt={project.images.software.caption || "Software & Systems"}
-                    className="w-full rounded-lg border border-surface-300/60 object-cover"
-                  />
-                  {project.images.software.caption && (
-                    <figcaption className="text-xs font-mono text-surface-500 text-center">
-                      {project.images.software.caption}
-                    </figcaption>
-                  )}
-                </figure>
+                Array.isArray(project.images.software) ? (
+                  <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {project.images.software.map((image, index) => (
+                      <figure key={index} className="space-y-2">
+                        <img
+                          src={image.src}
+                          alt={image.caption || "Software & Systems"}
+                          className="w-full h-full rounded-lg border border-surface-300/60 object-cover"
+                        />
+                        {image.caption && (
+                          <figcaption className="text-xs font-mono text-surface-500 text-center">
+                            {image.caption}
+                          </figcaption>
+                        )}
+                      </figure>
+                    ))}
+                  </div>
+                ) : (
+                  <figure className="mt-6 space-y-2">
+                    <img
+                      src={project.images.software.src}
+                      alt={project.images.software.caption || "Software & Systems"}
+                      className="w-full rounded-lg border border-surface-300/60 object-cover"
+                    />
+                    {project.images.software.caption && (
+                      <figcaption className="text-xs font-mono text-surface-500 text-center">
+                        {project.images.software.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                )
               )}
             </section>
           )}
