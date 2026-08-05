@@ -195,6 +195,24 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   )}
                 </figure>
               )}
+
+              {project.resultsVideo && (
+                <figure className="mt-6 space-y-2">
+                  <video
+                    src={project.resultsVideo.src}
+                    controls
+                    playsInline
+                    className="w-full rounded-lg border border-surface-300/60"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                  {project.resultsVideo.caption && (
+                    <figcaption className="text-xs font-mono text-surface-500 text-center">
+                      {project.resultsVideo.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              )}
             </section>
           )}
 
