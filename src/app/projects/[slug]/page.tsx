@@ -198,14 +198,16 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
               {project.resultsVideo && (
                 <figure className="mt-6 space-y-2">
-                  <video
-                    src={project.resultsVideo.src}
-                    controls
-                    playsInline
-                    className="w-full rounded-lg border border-surface-300/60"
-                  >
-                    Your browser does not support the video tag.
-                  </video>
+                  <div className="w-full aspect-video overflow-hidden rounded-lg border border-surface-300/60 bg-black">
+                    <video
+                      src={project.resultsVideo.src}
+                      controls
+                      playsInline
+                      className="w-full h-full object-contain"
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
                   {project.resultsVideo.caption && (
                     <figcaption className="text-xs font-mono text-surface-500 text-center">
                       {project.resultsVideo.caption}
