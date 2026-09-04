@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { FileText } from 'lucide-react';
-import Image from 'next/image';
 import GridBackground from '@/components/GridBackground';
 
 export default function Home() {
@@ -40,49 +39,24 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* BIOGRAPHY & HEADSHOT SECTION */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mt-16 mb-20">
-
-        {/* Left Column: Text (Takes up 7 out of 12 columns on large screens) */}
-        <div className="lg:col-span-7">
-          <div className="text-xs font-mono text-[#F4F6F5] tracking-widest mb-4">
-            // BIOGRAPHY
-          </div>
-          <div className="space-y-6 text-[#A2ADA6] text-lg leading-relaxed">
-            <p>
-              I'm a Mechatronics Engineering Technology student at Texas A&M University
-              pursuing a minor in Embedded Systems Integration. My interests are in robotics,
-              embedded systems, control systems, autonomous systems, and industrial automation.
-            </p>
-            <p>
-              I enjoy building projects that bring together software and hardware—from autonomous
-              robots and embedded controllers to mechanical design and automation tools. I'm especially
-              interested in understanding how individual components work together to create reliable,
-              real-world engineering systems.
-            </p>
-          </div>
+      {/* BIOGRAPHY SECTION */}
+      <section className="max-w-3xl mt-16 mb-20">
+        <div className="text-xs font-mono text-[#F4F6F5] tracking-widest mb-4">
+          // BIOGRAPHY
         </div>
-
-        {/* Right Column: Integrated Headshot (Takes up 5 out of 12 columns) */}
-        <div className="lg:col-span-5 relative group">
-          {/* Decorative wireframe offset box */}
-          <div className="absolute inset-0 border border-[#5EA87B]/30 translate-x-4 translate-y-4 rounded-xl -z-10 transition-transform duration-500 group-hover:translate-x-5 group-hover:translate-y-5" />
-
-          <div className="relative rounded-xl overflow-hidden border border-[rgba(120,150,130,0.2)] bg-[#0C1210]">
-            {/* Color grading overlay that fades on hover */}
-            <div className="absolute inset-0 bg-[#2F6B4F]/10 z-10 mix-blend-overlay group-hover:bg-transparent transition-colors duration-500" />
-
-            <Image
-              src="/headshot.jpg"
-              alt="Leonardo Molina"
-              width={600}
-              height={700}
-              className="w-full h-auto object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-500"
-              priority
-            />
-          </div>
+        <div className="space-y-6 text-[#A2ADA6] text-lg leading-relaxed">
+          <p>
+            I'm a Mechatronics Engineering Technology student at Texas A&M University
+            pursuing a minor in Embedded Systems Integration. My interests are in robotics,
+            embedded systems, control systems, autonomous systems, and industrial automation.
+          </p>
+          <p>
+            I enjoy building projects that bring together software and hardware—from autonomous
+            robots and embedded controllers to mechanical design and automation tools. I'm especially
+            interested in understanding how individual components work together to create reliable,
+            real-world engineering systems.
+          </p>
         </div>
-
       </section>
 
       {/* TIMELINE SECTION */}
