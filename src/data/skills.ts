@@ -23,7 +23,7 @@ export const skillsData: SkillCategory[] = [
     category: 'Robotics Software & Perception',
     skills: [
       { name: 'Python', description: 'Multi-threaded control architectures, hardware driver classes, and autonomous state machines across four robotics projects.', level: 'Expert' },
-      { name: 'ROS 2', description: 'Node architecture and CAN-integrated actuator command exposure for rover manipulator subsystems.', level: 'Advanced' },
+      { name: 'C', description: 'Low-level firmware for microcontroller-driven motor and sensor control, complementing higher-level Python control layers.', level: 'Advanced' },
       { name: 'Computer Vision (OpenCV)', description: 'HSV color-space thresholding and contour detection for real-time target identification and visual servoing.', level: 'Advanced' },
       { name: 'Mapping & Navigation', description: 'LiDAR ray-casting occupancy grids and multi-phase autonomous navigation: wall-following, exploration, and target retrieval.', level: 'Advanced' }
     ]
