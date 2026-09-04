@@ -15,10 +15,7 @@ export default function SkillsPage() {
             <div className="space-y-4">
               {cat.skills.map((skill) => (
                 <div key={skill.name} className="p-3 rounded bg-surface-100/50 border border-surface-200/60 hover:border-accent/40 transition-colors">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-sm font-medium">{skill.name}</span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-surface-200 text-surface-600">{skill.level}</span>
-                  </div>
+                  <span className="text-sm font-medium block mb-1">{skill.name}</span>
                   <p className="text-xs text-surface-500">{skill.description}</p>
                 </div>
               ))}
