@@ -76,7 +76,7 @@ export default function Home() {
       </section>
 
       {/* FEATURED PROJECTS CASE STUDIES */}
-      <section id="projects" className="mt-20 pt-20">
+      <section id="projects" className="mt-20 pt-20 pb-20">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-xl font-medium font-mono">Selected Engineering Projects</h2>
           <Link href="/projects" className="text-xs font-mono text-accent hover:underline flex items-center gap-1">
@@ -110,14 +110,6 @@ export default function Home() {
               </div>
             </Link>
           ))}
-        </div>
-      </section>
-      
-      {/* EXPERIENCE */}
-      <section id="experience" className="mt-20 pt-20 pb-20">
-        <h2 className="text-xl font-medium font-mono mb-8">Professional Experience</h2>
-        <div className="p-6 rounded-lg border border-surface-300/60 bg-surface-50/40 text-surface-500 text-sm font-mono">
-           // SYSTEM_LOG: Experience data compiling...
         </div>
       </section>
 
