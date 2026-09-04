@@ -16,7 +16,6 @@ export default function Navbar() {
   // Restored these to link to separate pages instead of scrolling down one page
   const navLinks = [
     { name: 'Overview', href: '/' },
-    { name: 'About', href: '/about' },
     { name: 'Projects', href: '/projects' },
     { name: 'Skills', href: '/skills' },
   ];
