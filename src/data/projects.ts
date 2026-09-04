@@ -47,8 +47,7 @@ export const projectsData: Project[] = [
       hardware: 'For the physical manipulation of targets, I designed a 3D-printed rack-and-pinion style parallel gripper, driven by a TowerPro MG995 servo motor. The mechanism included 11 components and utilized a 2:1 gear reduction train. To solve payload slipping caused by low mass and smooth surfaces, I applied a surface treatment to the gripping faces to create a rough texture, significantly increasing static friction. Power was distributed through a multi-rail network converting a 12V LiFePO4 battery to a regulated 5V/3A rail for compute, with isolated supply lines protecting the motor controllers.',
       software: 'Spatial awareness relied on a combination of 2D LiDAR and computer vision. I integrated a SICK TiM561 LiDAR sensor and applied a ray-casting technique based on the Bresenham line algorithm to build a dynamic 200x200 cell occupancy grid, while an HP Webcam W200 processed video at 5 fps, converting frames to HSV color space with dual-range masks to isolate red pixels. On top of this perception stack ran a multi-phase navigation algorithm: the robot began with LiDAR-guided wall following, transitioned into an exploration mode to map the inner environment, and finally handed off to visual servoing to keep the red block centered in frame during retrieval.',
       results: 'To monitor the mission in real-time, I built a Flask-based web server hosted directly on the Raspberry Pi. The dashboard featured a JavaScript client that polled a JSON snapshot of the shared state every second, providing a live top-down view of the generated occupancy grid, the robot heading, and the location of confirmed targets.'
-    },
-    githubUrl: 'https://github.com/leonardo-molina'
+    }
   },
   {
     slug: 'vision-guided-amr',
