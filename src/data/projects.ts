@@ -53,23 +53,49 @@ export const projectsData: Project[] = [
   {
     slug: 'vision-guided-amr',
     title: 'Vision-Guided Autonomous Mobile Robot',
-    shortDescription: 'Linux/Python real-time processing pipeline on Raspberry Pi with closed-loop PID velocity control and HSV color tracking.',
-    fullDescription: 'Custom embedded AMR leveraging high-speed vision telemetry and inertial sensors for automated trajectory correction.',
+    shortDescription: 'Maze-navigating mobile manipulator combining a ToF-guided driving base with a color-sorting robotic hand, controlled by a custom Raspberry Pi/Python software stack.',
+    fullDescription: 'Robotic Systems Design capstone project pairing an autonomous driving base with a humanoid gripping hand to navigate a maze, pick up a block, and sort it by color into a matching shelf.',
     category: 'Controls',
     featured: true,
     specifications: {
-      duration: '3 Months',
-      role: 'Embedded Systems Lead',
-      teamSize: 'Individual Project',
-      languages: ['Python', 'C'],
-      hardware: ['Raspberry Pi', 'L298N Driver', 'Optical Encoders', 'IMU (MPU6050)'],
-      software: ['OpenCV', 'Linux Hardware PWM', 'I2C/SPI'],
+      duration: '4 Weeks',
+      role: 'Software Lead',
+      teamSize: '3 Engineers',
+      languages: ['Python'],
+      hardware: ['Raspberry Pi', 'VL53L4CD ToF Sensors (x3)', 'APDS9960 Color Sensor', 'TCA9548A I2C Multiplexer', 'PWM DC Motors', 'Hobby Servos', 'REV Robotics Control Hub'],
+      software: ['Adafruit Blinka/CircuitPython', 'I2C/Busio', 'Custom PID Controller', 'REV Blocks (FTC)'],
       status: 'Completed'
     },
+    images: {
+      overview: {
+        src: '/MazeHandFullAssembly.jpg',
+        caption: 'Figure 1: The full driving base and hand assembly, wired into the Raspberry Pi.'
+      },
+      hardware: {
+        src: '/MazeHandFrontDetail.jpg',
+        caption: 'Figure 2: Front detail of the tendon-driven hand, showing the elbow joint and finger pulleys.'
+      },
+      software: [
+        {
+          src: '/AutoBotFlowchart.jpg',
+          caption: 'Figure 3: AutoBot.py — the autonomous maze-navigation and block-sorting state flow.'
+        },
+        {
+          src: '/ManuBotFlowchart.jpg',
+          caption: 'Figure 4: ManuBot.py — the keyboard-teleop mode used to validate hardware and tune calibration.'
+        }
+      ],
+      results: {
+        src: '/MazeHandBlockGrip.jpg',
+        caption: 'Figure 5: The hand gripping a test block ahead of a shelf-delivery run.'
+      }
+    },
     sections: {
-      overview: 'High-speed object tracking in mobile platforms often suffers from latency between vision pipelines and motor control loops. The system needed deterministic execution of sensor sampling and velocity correction at 50Hz, real-time color-space filtering with minimal frame latency, and hardware-level PWM signal generation for precise motor response.',
-      approach: 'I kept the entire control loop close to the hardware: a Python vision pipeline handled HSV-based color tracking while a dedicated, hardware-timed PWM layer handled motor response, so that sensing and actuation stayed tightly synchronized instead of drifting apart under load.',
-      results: 'Achieved sub-10ms loop latency, enabling zero-overshoot trajectory correction during visual line-following at 1.5 m/s.'
+      overview: 'For my Robotic Systems Design capstone, our three-person team combined two independently built subsystems, an autonomous driving base and a human-like gripping hand, into a single mobile manipulator. The target task mirrored a real industrial pick-and-place scenario: drive through a maze without operator input, pick up a block off the floor, identify its color, and deposit it in the shelf assigned to that color. As the team\'s software lead, I owned the Raspberry Pi control stack that turned the combined hardware into a working system, reading three time-of-flight distance sensors and a color sensor over I2C, driving the base and elbow motors, and sequencing the full pickup-and-delivery task end to end.',
+      approach: 'I split the control software into two programs built on the same low-level drivers so that fixes made in one carried straight over to the other. ManuBot.py gave the team keyboard-driven teleoperation with a background thread continuously polling the ToF and color sensors, which let us validate wiring, tune servo ranges, and shake out mechanical issues before trusting the robot to run unsupervised. AutoBot.py reused those same PWM_Motor, Servo, and sensor wrapper classes to run the task autonomously: comparing the three ToF readings to steer around walls while exploring the maze, stopping once the front sensor confirmed a block was within pickup range, classifying the block\'s color, and driving the elbow to the shelf height mapped to that color before releasing it.',
+      hardware: 'The physical platform paired a four-wheel driving base with a multi-servo hand mounted on an elbow joint, giving the arm the reach it needed to pick a block off the floor and later present it at shelf height. I helped assemble the driving base and wire it into the Raspberry Pi and REV Robotics electronics, and worked with the mechanical design to add the elbow joint that let one hand serve both the pickup and delivery steps. Three VL53L4CD time-of-flight sensors (front, left, right) supplied wall-distance and block-distance readings, and an APDS9960 sensor supplied the RGB channels used to classify each block, all sharing a single I2C bus through a TCA9548A multiplexer.',
+      software: 'On the Raspberry Pi, I wrapped the low-level PWM motor and servo control in small driver classes so the rest of the code stayed hardware-agnostic, and brought all three ToF sensors and the color sensor onto one I2C bus via the TCA9548A multiplexer using Adafruit\'s Blinka/CircuitPython libraries. Maze navigation ran as a reactive loop, comparing left and right ToF distances to pick a turn direction whenever the front sensor tripped, then driving straight once the path cleared. Block sorting compared the raw R/G/B channels from the color sensor to classify the block, looked up its target shelf height, and drove the elbow motor in a distance-feedback loop until it settled within tolerance of that height, at which point the fingers opened to release the block. I also stood up a PID_Controller class alongside the reactive logic as a first step toward closed-loop positioning as the control system matured.',
+      results: 'The team produced a hand that decently mimicked the desired degrees of freedom, and testing surfaced a concrete mechanical lesson: orienting the thumb and side finger perpendicular to the other fingers gripped test blocks far more reliably than our first layout. On the control side, both software paths worked as intended, the REV Control Hub and gamepad build was tuned well enough to manually drive the maze and place blocks, and the Raspberry Pi stack (ManuBot.py and AutoBot.py) was tested and debugged on the final assembly, successfully chaining maze navigation, color detection, block pickup, and shelf delivery into one run.'
     }
   },
   {
